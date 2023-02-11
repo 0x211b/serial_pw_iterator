@@ -15,7 +15,7 @@ starting_pw = "abxcc"
 
 # characters = "abcdefghijklmnopqrstuvwxyzABCEDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+-=/"
 characters = "abcde/"
-end_char = "c"
+end_char = "/"
 
 
 def pw_increment(old_pw):
@@ -50,15 +50,26 @@ def rollover(pw_length):
 
 
 def pw_inc(old_pw):
+    pass_list = []
     new_pass = ""
     pw_len = len(old_pw)
     end_count = 0
     small_count = 0
 
-    for letter in range(pw_len, 0, -1):
-        print(old_pw[letter])
 
+    for x in old_pw:
+        pass_list.append(x)
 
+    for y in range((pw_len-1), -1, -1):
+
+        print(f"----------\ny={y},\tletter={old_pw[y]}")
+        section = ""
+        for z in range(y,pw_len):
+            print(pass_list[z],)
+            section += (pass_list[z])
+        print(f"section = {section}")
+        if (y+1) == section.count("c"):
+            print("equals")
 
 
     return new_pass
@@ -73,7 +84,7 @@ if __name__ == "__main__":
 
     password = starting_pw
 
-    for z in range(0,5):
+    for z in range(0,1):
         #new_password = pw_increment(password)
         new_password = pw_inc(password)
         print (new_password)
